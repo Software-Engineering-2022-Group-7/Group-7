@@ -4,18 +4,57 @@
     <meta charset="UTF-8">
     <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="viewport" content="width=1200">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename= 'index.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     {% block title %}{% endblock %}
 </head>
 <body>
 
 <!--< page header >-->
-<header class="page_header">
-    <h1><a href="/">Introduction to AVL Trees</a></h1>
-</header>
+<nav class="navbar navbar-expand-lg sticky-top" id="header" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Introduction To AVL Trees</a>
+        <div class="vr" id="vrLine"></div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Pages</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutorial.html">Tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visualization.html">Visualization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="implementation.html">Implementation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quiz.html">Quiz</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="narvbarOps">
+
+        </div>
+    </div>
+</nav>
 
 <!--< navigation bar >-->
 <nav id="sidebar" class="sidebar">
@@ -35,6 +74,18 @@
 
 {% block content %}{% endblock %}
 
+<script>
+    $(document).ready(function() {
+        // when the navbar-toggler is displayed, the vrLine will be hidden
+        $(window).resize(function() {
+            if ($(window).width() < 992) {
+                $("#vrLine").hide();
+            } else {
+                $("#vrLine").show();
+            }
+        });
 
+    });
+</script>
 </body>
 </html>

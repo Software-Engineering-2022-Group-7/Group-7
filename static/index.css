@@ -13,30 +13,40 @@ body {
 }
 
 /* Page Header */
-.page_header {
+#header {
     grid-area: header;
-    background: var(--black_color);
     position: relative;
-}
-
-header.page_header h1 {
-    margin: auto;
-    padding: 10px 0;
-
-    font-family: var(--page_font_family);
-    font-style: italic;
-    font-weight: bold;
-    font-size: 50px;
-    text-align: center;
-}
-
-header.page_header a {
-    text-decoration: none;
+    background-color: var(--black_color);
     color: white;
+    font-family: var(--page_font_family), serif;
+    min-height: 80px;
+    padding: 15px 5px;
 }
 
-header.page_header a:hover {
-    color: gray;
+#header a {
+    color: white;
+    text-decoration: none;
+}
+
+#header .vr {
+    border-left: 3px solid white;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#header .navbar-brand {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+#header .navbar-nav {
+    font-size: 1.2em;
+    gap: 10px;
+}
+
+#header a:hover {
+    color: lightgray;
 }
 
 /* Navigation Bar */
@@ -46,7 +56,7 @@ nav.sidebar {
     min-height: calc(100vh - 80px);
 
     /* words */
-    font-family: var(--page_font_family);
+    font-family: var(--page_font_family), serif;
     font-size: 25px;
     font-style: italic;
 }
@@ -78,13 +88,17 @@ nav.sidebar::-webkit-scrollbar {
 main {
     grid-area: main_sec;
     min-height: calc(100vh - 80px);
-
+    height: calc(100vh - 80px);
     overflow: auto;
     padding-top: 30px;
     background: #F6F8FA;
 
     /* words */
     font-family: "Trebuchet MS", Arial, serif;
+}
+
+main .home-text {
+    margin-top: 20px;
 }
 
 main h1 {
@@ -123,8 +137,9 @@ main ul {
 
 /* Tutorial Page */
 .carousel {
-    margin: 35px 70px 10px 70px;
-    height: 550px;
+    margin: 35px 70px 60px 70px;
+    height: -webkit-fill-available;
+    height: -moz-available;
     overflow: hidden;
     background: white;
 
@@ -132,8 +147,14 @@ main ul {
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 
+.carousel .carousel-inner {
+    height: 100%;
+    overflow: auto;
+}
+
 .carousel .carousel-item {
-    max-height: 550px;
+    padding-top: 10px;
+    padding-bottom: 30px;
     overflow: auto;
 }
 
